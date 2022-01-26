@@ -4,7 +4,18 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import "../styles/styles.css";
 import "../styles/example-styles.css";
 
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
@@ -171,13 +182,16 @@ export default class ToolboxLayout extends React.Component {
         <button onClick={this.onCompactTypeChange}>
           Change Compaction Type
         </button>
-
-        <ToolBox
+        <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={4} md={1.5}>
+          <Item> <ToolBox
           items={this.state.toolbox[this.state.currentBreakpoint] || []}
           onTakeItem={this.onTakeItem}
-        />
-
-        <ResponsiveReactGridLayout
+        /></Item>
+        </Grid>
+        <Grid item xs={6} md={10}>
+          <Item>  <ResponsiveReactGridLayout
           {...this.props}
           layouts={this.state.layouts}
           onBreakpointChange={this.onBreakpointChange}
@@ -191,7 +205,11 @@ export default class ToolboxLayout extends React.Component {
           preventCollision={!this.state.compactType}
         >
           {this.generateDOM()}
-        </ResponsiveReactGridLayout>
+        </ResponsiveReactGridLayout></Item>
+        </Grid>
+      </Grid>
+    </Box>
+
       </div>
     );
   }
