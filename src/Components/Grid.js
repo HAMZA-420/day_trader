@@ -9,6 +9,10 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
+import News from "../Screens/News";
+import Signals from "../Screens/Signals";
+import Movers from "../Screens/Movers";
+import Charts from "../Screens/Charts";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -86,9 +90,10 @@ export default class ToolboxLayout extends React.Component {
             >
               Static - {l.i}
             </span>
-          ) : (
-            <span className="text">{l.i}</span>
-          )}
+          ) : l.i=="0" ? (
+            <Signals />
+          ): l.i=="1" ? ( <Movers /> ): l.i=="2" ? ( <News /> ): ( <Charts /> )} 
+        
         </div>
       );
     });
@@ -218,7 +223,7 @@ export default class ToolboxLayout extends React.Component {
 
 function generateLayout() {
   return _.map(_.range(0, 4), function(item, i) {
-    if(i==0) {
+    if(i===0) {
       return {
         x: 0,
         y: 0,
@@ -228,7 +233,7 @@ function generateLayout() {
         static: false
       }
     }
-    if(i==1) {
+    if(i===1) {
       return {
         x: 0,
         y: 8,
@@ -238,7 +243,7 @@ function generateLayout() {
         static: false
       }
     }
-    if(i==2) {
+    if(i===2) {
       return {
         x: 6,
         y: 0,
@@ -248,7 +253,7 @@ function generateLayout() {
         static: false
       }
     }
-    if(i==3) {
+    if(i===3) {
       return {
         x: 6,
         y: 8,
