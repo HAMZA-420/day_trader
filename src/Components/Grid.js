@@ -191,9 +191,10 @@ export default class ToolboxLayout extends React.Component {
         /></Item>
         </Grid>
         <Grid item xs={6} md={10}>
-          <Item>  <ResponsiveReactGridLayout
+          <Item>  
+        <ResponsiveReactGridLayout
           {...this.props}
-          layouts={this.state.layouts}
+         layouts={this.state.layouts}
           onBreakpointChange={this.onBreakpointChange}
           onLayoutChange={this.onLayoutChange}
           // WidthProvider option
@@ -216,15 +217,50 @@ export default class ToolboxLayout extends React.Component {
 }
 
 function generateLayout() {
-  return _.map(_.range(0, 25), function(item, i) {
-    var y = Math.ceil(Math.random() * 4) + 1;
-    return {
-      x: (_.random(0, 5) * 2) % 12,
-      y: Math.floor(i / 6) * y,
-      w: 2,
-      h: y,
-      i: i.toString(),
-      static: Math.random() < 0.05
-    };
+  return _.map(_.range(0, 4), function(item, i) {
+    if(i==0) {
+      return {
+        x: 0,
+        y: 0,
+        w: 6,
+        h: 8,
+        i: i.toString(),
+        static: false
+      }
+    }
+    if(i==1) {
+      return {
+        x: 0,
+        y: 8,
+        w: 6,
+        h: 7,
+        i: i.toString(),
+        static: false
+      }
+    }
+    if(i==2) {
+      return {
+        x: 6,
+        y: 0,
+        w: 6,
+        h: 8,
+        i: i.toString(),
+        static: false
+      }
+    }
+    if(i==3) {
+      return {
+        x: 6,
+        y: 8,
+        w: 6,
+        h: 7,
+        i: i.toString(),
+        static: false
+      }
+    }
   });
 }
+
+
+//write generateLayout function with for loop 
+
