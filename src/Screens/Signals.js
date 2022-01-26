@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
+
 
 
 
 
 export default function Signals() {
-
     return(
         <div>
             <h1>Signals</h1>

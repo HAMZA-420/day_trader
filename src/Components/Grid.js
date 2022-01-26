@@ -90,9 +90,9 @@ export default class ToolboxLayout extends React.Component {
             >
               Static - {l.i}
             </span>
-          ) : l.i=="0" ? (
+          ) : l.i==="0" ? (
             <Signals />
-          ): l.i=="1" ? ( <Movers /> ): l.i=="2" ? ( <News /> ): ( <Charts /> )} 
+          ): l.i==="1" ? ( <Movers /> ): l.i==="2" ? ( <News /> ): ( <Charts /> )} 
         
         </div>
       );
