@@ -4,7 +4,6 @@ import ToolboxLayout from "./Components/Grid";
 import News from "./Api's/News";
 import GridLayOut from "./Components/GridLayout";
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <div className="layoutJSON">
           Displayed as <code>[x, y, w, h]</code>:
           <div className="columns">{this.stringifyLayout()}</div>

@@ -58,9 +58,8 @@ body {
   
   .toolbox {
     background-color: #dfd;
-    width: 100%;
+    width: 90%;
     height: 623px;
-    overflow: scroll;
   }
   
   .hide-button {

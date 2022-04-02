@@ -14,6 +14,7 @@ import Signals from "../Screens/Signals";
 import Movers from "../Screens/Movers";
 import Charts from "../Screens/Charts";
 
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -195,7 +196,7 @@ export default class ToolboxLayout extends React.Component {
           onTakeItem={this.onTakeItem}
         /></Item>
         </Grid>
-        <Grid item xs={6} md={10}>
+        <Grid item xs={6} md={10} >
           <Item>  
         <ResponsiveReactGridLayout
           {...this.props}

@@ -1,13 +1,29 @@
-import React,{useState} from "react";
+import * as React from 'react';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { useDemoData } from '@mui/x-data-grid-generator';
 
+export default function CustomLocaleTextGrid() {
+  const { data } = useDemoData({
+    dataSet: 'Commodity',
+    rowLength: 20,
+    maxColumns: 20,
+  });
 
-
-
-
-export default function Signals() {
-    return(
-        <div>
-            <h1>Signals</h1>
-        </div>
-    )
+  return (
+    <div style={{ height: "100%", width: '100%', marginTop: "22px"}} >
+      <DataGrid
+        {...data}
+        localeText={{
+          toolbarDensity: 'Size',
+          toolbarDensityLabel: 'Size',
+          toolbarDensityCompact: 'Small',
+          toolbarDensityStandard: 'Medium',
+          toolbarDensityComfortable: 'Large',
+        }}
+        components={{
+          Toolbar: GridToolbar,
+        }}
+      />
+    </div>
+  );
 }
